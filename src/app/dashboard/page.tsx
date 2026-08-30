@@ -1,9 +1,9 @@
 "use client";
+
 import Link from "next/link";
 import {
   LayoutDashboard,
   BookOpen,
-  Compass,
   ClipboardList,
   FileQuestion,
   BarChart3,
@@ -61,7 +61,9 @@ export default function DashboardPage() {
         </div>
 
 
-        {/* NAVIGATION */}
+        {/* ===================================================
+            NAVIGATION
+        =================================================== */}
 
         <nav className="flex-1 overflow-y-auto px-3 py-6">
 
@@ -89,10 +91,6 @@ export default function DashboardPage() {
               label="My Courses"
               href="/courses"
             />
-
-           
-
-            
 
             {/* ASSIGNMENTS */}
 
@@ -129,7 +127,9 @@ export default function DashboardPage() {
           </div>
 
 
-          {/* AI LEARNING */}
+          {/* ===================================================
+              AI LEARNING
+          =================================================== */}
 
           <p className="mb-3 mt-8 px-3 text-[9px] font-semibold uppercase tracking-widest text-slate-600">
             AI Learning
@@ -143,7 +143,9 @@ export default function DashboardPage() {
           />
 
 
-          {/* ACCOUNT */}
+          {/* ===================================================
+              ACCOUNT
+          =================================================== */}
 
           <p className="mb-3 mt-8 px-3 text-[9px] font-semibold uppercase tracking-widest text-slate-600">
             Account
@@ -158,7 +160,9 @@ export default function DashboardPage() {
         </nav>
 
 
-        {/* USER PROFILE */}
+        {/* ===================================================
+            USER PROFILE
+        =================================================== */}
 
         <div className="border-t border-white/10 p-3">
 
@@ -272,7 +276,9 @@ export default function DashboardPage() {
 
         <main className="p-6 lg:p-8">
 
-          {/* WELCOME BANNER */}
+          {/* =================================================
+              WELCOME BANNER
+          ================================================= */}
 
           <section className="relative overflow-hidden rounded-2xl border border-cyan-400/10 bg-gradient-to-r from-cyan-400/10 via-blue-500/5 to-transparent p-7">
 
@@ -297,19 +303,21 @@ export default function DashboardPage() {
 
               <div className="mt-5 flex gap-3">
 
-                <a
+                {/* FIXED: Link instead of a */}
+
+                <Link
                   href="/courses"
                   className="rounded-lg bg-cyan-400 px-5 py-2.5 text-[11px] font-bold text-slate-950 transition hover:bg-cyan-300"
                 >
                   Continue Learning
-                </a>
+                </Link>
 
-                <a
+                <Link
                   href="/courses"
                   className="rounded-lg border border-white/10 bg-white/[0.03] px-5 py-2.5 text-[11px] font-semibold text-slate-300 transition hover:bg-white/10 hover:text-white"
                 >
                   Explore Courses
-                </a>
+                </Link>
 
               </div>
 
@@ -381,12 +389,14 @@ export default function DashboardPage() {
 
                 </div>
 
-                <a
+                {/* FIXED */}
+
+                <Link
                   href="/courses"
                   className="text-[10px] font-semibold text-cyan-400 hover:text-cyan-300"
                 >
                   View all →
-                </a>
+                </Link>
 
               </div>
 
@@ -589,7 +599,6 @@ function SidebarItem({
     }
   `;
 
-
   const content = (
     <>
       <span
@@ -613,21 +622,33 @@ function SidebarItem({
   );
 
 
-  /*
-    IMPORTANT:
-    Normal <a> navigation is being used.
-    This is what made your My Courses navigation work.
-  */
+  {/* =====================================================
+      IMPORTANT FIX
+
+      Next.js Link automatically respects:
+
+      basePath: "/LearnHub-AI"
+
+      Therefore:
+
+      href="/courses"
+
+      becomes:
+
+      /LearnHub-AI/courses/
+
+      on GitHub Pages.
+  ===================================================== */}
 
   if (href) {
 
     return (
-      <a
+      <Link
         href={href}
         className={className}
       >
         {content}
-      </a>
+      </Link>
     );
 
   }
@@ -715,15 +736,13 @@ function CourseCard({
 
       {/* TOP */}
 
-      <div className="flex h-24 items-center justify-center bg-gradient-to-br from-cyan-500/10 to-blue-500/5">
+      <div className="relative flex h-24 items-center justify-center bg-gradient-to-br from-cyan-500/10 to-blue-500/5">
 
         <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-cyan-400/20 bg-[#020617]/60 text-cyan-400">
-
           <BookOpen size={21} />
-
         </div>
 
-        <span className="absolute ml-56 mt-[-70px] rounded-full border border-white/10 bg-black/20 px-2 py-1 text-[8px] text-slate-400">
+        <span className="absolute right-3 top-3 rounded-full border border-white/10 bg-black/20 px-2 py-1 text-[8px] text-slate-400">
           {level}
         </span>
 
@@ -782,13 +801,15 @@ function CourseCard({
             {lessons}
           </span>
 
-          <a
+          {/* FIXED: Link */}
+
+          <Link
             href="/courses"
             className="flex items-center gap-1 text-[9px] font-semibold text-cyan-400"
           >
             <PlayCircle size={12} />
             Continue
-          </a>
+          </Link>
 
         </div>
 
@@ -847,7 +868,8 @@ function QuickAction({
 }) {
 
   return (
-    <a
+
+    <Link
       href={href}
       className="group rounded-xl border border-white/10 bg-white/[0.02] p-4 transition hover:border-cyan-400/30 hover:bg-cyan-400/[0.03]"
     >
@@ -877,7 +899,7 @@ function QuickAction({
 
       </div>
 
-    </a>
+    </Link>
   );
 }
 
@@ -890,7 +912,9 @@ function CheckCircleIcon() {
 
   return (
     <div className="flex h-5 w-5 items-center justify-center rounded-full border-2 border-cyan-400">
+
       <div className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+
     </div>
   );
 }
