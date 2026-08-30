@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import {
   Trophy,
   Award,
@@ -302,12 +302,12 @@ export default function AchievementsPage() {
             BACK BUTTON
         =================================================== */}
 
-        <a
+        <Link
           href="/dashboard"
           className="mt-8 inline-block rounded-xl bg-white/10 px-6 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/20 hover:text-white"
         >
           ← Back to Dashboard
-        </a>
+        </Link>
 
       </div>
 

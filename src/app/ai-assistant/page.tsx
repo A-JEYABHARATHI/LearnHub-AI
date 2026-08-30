@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { useState } from "react";
 
 import {
@@ -377,12 +377,12 @@ export default function AIAssistantPage() {
           BACK TO DASHBOARD
       ===================================================== */}
 
-      <a
+      <Link
         href="/dashboard"
         className="fixed bottom-5 left-5 rounded-xl bg-white/10 px-4 py-2.5 text-xs font-semibold text-slate-400 backdrop-blur transition hover:bg-white/20 hover:text-white lg:left-[275px]"
       >
         ← Dashboard
-      </a>
+      </Link>
 
     </main>
   );

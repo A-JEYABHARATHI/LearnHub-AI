@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import {
   ClipboardList,
   Clock,
@@ -156,12 +156,12 @@ export default function AssignmentsPage() {
 
         {/* BACK BUTTON */}
 
-        <a
+        <Link
           href="/dashboard"
           className="mt-8 inline-flex items-center gap-2 rounded-xl bg-white/10 px-5 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/20 hover:text-white"
         >
           ← Back to Dashboard
-        </a>
+        </Link>
 
       </div>
 

@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import {
   BarChart3,
   TrendingUp,
@@ -408,12 +408,12 @@ export default function ProgressPage() {
 
             </div>
 
-            <a
+            <Link
               href="/achievements"
               className="rounded-xl bg-cyan-400 px-5 py-3 text-xs font-bold text-slate-950 hover:bg-cyan-300"
             >
               View Achievements →
-            </a>
+            </Link>
 
           </div>
 

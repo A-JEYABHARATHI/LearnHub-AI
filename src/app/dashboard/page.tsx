@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import {
   LayoutDashboard,
   BookOpen,
@@ -37,7 +37,7 @@ export default function DashboardPage() {
 
         <div className="border-b border-white/10 px-5 py-5">
 
-          <a
+          <Link
             href="/dashboard"
             className="flex items-center gap-3"
           >
@@ -56,7 +56,7 @@ export default function DashboardPage() {
               </p>
             </div>
 
-          </a>
+          </Link>
 
         </div>
 
